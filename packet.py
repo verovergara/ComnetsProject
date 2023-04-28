@@ -16,6 +16,7 @@ import asyncore
 # Nothing works right now, like at all
 # The objective would be to store everything in a struct, but since we have different packet types of varying lengths 
 # use this as a reference? https://github.com/sumitece87/comnet2_2020/tree/master/comnetsii_package/Example_Ping
+# documentation reference https://docs.google.com/document/d/1meTQd49NvTkn1GZNhilRDmXpstn27qb0XuhDAtOjkKQ/edit#
 
 
 def create_LSA_packet(pkttype, seq, TTL, src, hops, advRoute, LSSeq, CRC):
