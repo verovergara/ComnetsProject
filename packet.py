@@ -83,7 +83,11 @@ def read_header(pkt):
         
     elif rawPacketType == 5:
         #LSA packet type
-        print(5)
+        pkttype, seq, TTL, src, hops, advRoute, LSSeq, CRC = struct.unpack('BBB4sBLLB', header)
+        
+        src = socket.inet_ntoa(src)
+
+        return pkttype, seq, TTL, src, hops, advRoute, LSSeq, CRC
 
     else:
         return "error!"
@@ -110,6 +114,8 @@ def read_data(pkt):
     elif pkttype == 4:
         #unicast pkttype
         data = pkt[11:]
+    elif pkttype == 5:
+        data = 0
     
     return data
 
